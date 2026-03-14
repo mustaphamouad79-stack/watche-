@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-arabic: "Noto Sans Arabic", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--accent-color);
+    opacity: 0.3;
+    color: transparent;
+  }
+  
+  .spotlight {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      var(--spotlight-color),
+      transparent 40%
+    );
+  }
+
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
